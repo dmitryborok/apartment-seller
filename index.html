@@ -38,6 +38,39 @@
     <!-- Your Code Here -->
     <!-- You should start doing handlebar stuff here -->
     <!-- Your Code Here -->
+    <script id="apartment-template" type="text/x-handlebars-template">
+        {{#each apartments}}
+                <div class="result">  
+                    <img src="{{img}}">
+                    <div class="l-addr" for="address">Address: </div>
+                    <div class="address">{{address}}</div>
+                    <div class="l-price" for="price">Price: </div>
+                    <div class="price">${{price}}</div>
+                    <div class="l-rooms" for="rooms">Rooms: </div>
+                    <div class="rooms">{{rooms}}</div>
+                    {{#if parking}}
+                        <div class="l-park" for="parking"><img src="assets/square-parking-solid.svg"></div>
+                    {{/if}}
+                    {{#if immediate}}
+                        <div class="l-immediate">Contact <a href="mailto:{{contactDetails.email}}">{{contactDetails.name}}</a></div>
+                    {{/if}}
+                    <div class="l-features">Features:</div>
+                    <div class="features">
+                        {{#each features}}
+                            {{#if @last}}
+                                <span>{{this}}</span>
+                            {{else}}
+                                <span>{{this}}, </span>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+        {{else}}
+            <div class="no-match">No results match the filter...</div> -->
+        {{/each}}
+
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>

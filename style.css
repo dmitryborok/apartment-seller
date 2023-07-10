@@ -66,12 +66,15 @@ label{
 .result{
     font-family: 'Raleway', sans-serif;
     display: grid;
-    grid-template-columns: 350px 90px 280px;
+    grid-template-columns: 350px 90px minmax(280px, 100%);
+    grid-template-rows: 40px 40px 40px minmax(40px, 100%) 40px;
     grid-template-areas: 
     "i la a"
     "i lpr p"
     "i lr r"
-    "i lpark park";
+    "i lf f"
+    "i lpark cont";
+    grid-auto-rows: 40px;
     box-shadow: 1px 1px 3px #0a1612;
     margin: 20px;
     padding: 20px;
@@ -128,12 +131,33 @@ button:active{background-color: #443729;}
 
 .result>.l-park{
     grid-area: lpark;
+    align-self: bottom;
+    margin-top: 10px;
 }
 
-.result>.l-immediate{}
+.l-park>img {
+    height: 60px;
+    width: 60px;
+}
+
+.result>.l-immediate{
+    grid-area: cont;
+    justify-self: right;
+    align-self: end;
+    right: 10px;
+    bottom: 10px;
+}
 
 .result>.address{
     grid-area: a;
+}
+
+.result>.l-features{
+    grid-area: lf;
+}
+
+.result>.features{
+    grid-area: f;
 }
 
 .price{
